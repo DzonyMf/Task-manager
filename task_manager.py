@@ -13,8 +13,18 @@ class Task:
         return f'{self.name}, {self.details}, {self.importance}, {self.created_at}, {self.is_done}'
 
 tasks = []
+name = input("Name your task ")
+details = input("What are the details? ")
+while True:
+    try:
+        importance = int(input("How important is this task on scale 1 to 10? "))
+        break
+    except ValueError as e:
+        print(e, "Insert only number")
 
-task1 = Task(input("Name your task "), input("What are the details? "), int(input("How important is this task on scale 1 to 10? ")), datetime.now(), False)
+created_at = datetime.now()
+is_done = False
+task1 = Task(name, details, importance, created_at, is_done)
 tasks.append(task1)
 
 for task in tasks:
